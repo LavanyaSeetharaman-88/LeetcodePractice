@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var l1 = [2, 4, 3];
+        var l2 = [5, 6, 4];
+        var result = 0;
+        var l1_value = "";
+        var l2_value = "";
+        var l1_int = 0;
+        var l2_int = 0;
+        var resultenArray = [];
+        let myFunc = num => Number(num);
+        var l1_orginal=[];
+        var l2_orginal=[];
+        var finalResulten=[];
+        var addTwoNumbers = function (l1, l2) {
+            //l1_orginal = l1.reverse();
+            //l2_orginal = l2.reverse();
+            var index=l1.length-1;
+            while(index>=0){
+                l1_orginal.push(l1[index]);
+                l2_orginal.push(l2[index]);
+                index--;
+                
+            }
+
+            console.log(l1_orginal);
+            console.log(l2_orginal);
+            for (var i = 0; i < l1.length; i++) {
+                l1_value += l1_orginal[i].toString();
+                l2_value += l2_orginal[i].toString();
+            }
+            l1_int = parseInt(l1_value);
+            l2_int = parseInt(l2_value);
+            result = l1_int + l2_int;
+            console.log(l1_int);
+            console.log(l2_int);
+            console.log(result);
+            console.log(typeof (result));
+            resultenArray = Array.from(String(result), myFunc)
+            console.log(resultenArray);
+            /*var index=resultenArray.length-1;
+            while(index>=0){
+                finalResulten.push(resultenArray[index]);
+                index--;
+                
+            }*/
+            
+            console.log(resultenArray.reverse());
+        }
+        addTwoNumbers(l1, l2);
+        //console.log((result).pad(3));
+    </script>
+</body>
+
+</html>

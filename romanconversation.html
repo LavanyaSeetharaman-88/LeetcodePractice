@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  // Input string         
+          var s = "IV";
+          var resulten="";
+          // Create Objects
+          const IRoman = { name: "I" };
+          const VRoman = { name: "V" };
+          const XRoman = { name: "X" };
+          const LRoman = { name: "L" };
+          const CRoman = { name: "C" };
+          const DRoman = { name: "D" };
+          const MRoman = { name: "M" };
+          // Create a new Map
+          const SymbolMap = new Map();
+  
+          // Add Elements to Map
+          SymbolMap.set(IRoman, 1);
+          SymbolMap.set(VRoman, 5);
+          SymbolMap.set(XRoman, 10);
+          SymbolMap.set(LRoman, 50);
+          SymbolMap.set(CRoman, 100);
+          SymbolMap.set(DRoman, 500);
+          SymbolMap.set(MRoman, 1000);
+          //console.log(SymbolMap.get(IRoman));
+  
+          var romanToInt = function (s) {
+              var lengthofValue = s.length;
+              console.log(lengthofValue);
+              var arrayOfValue = Array.from(s);
+              console.log(arrayOfValue);
+              for (var index = 0; index < lengthofValue; index++) {
+                  if(arrayOfValue[index] == IRoman.name){
+                     // console.log(SymbolMap.get(IRoman));
+                     resulten+=SymbolMap.get(IRoman);
+                  }else if(arrayOfValue[index] == VRoman.name){
+                      resulten+=SymbolMap.get(VRoman);
+                  }else if(arrayOfValue[index] == XRoman.name){
+                      resulten+=SymbolMap.get(XRoman);
+                  }else if(arrayOfValue[index] == LRoman.name){
+                      resulten+=SymbolMap.get(LRoman);
+                  }else if(arrayOfValue[index] == CRoman.name){
+                      resulten+=SymbolMap.get(CRoman);
+                  }else if(arrayOfValue[index] == DRoman.name){
+                      resulten+=SymbolMap.get(DRoman);
+                  }else if(arrayOfValue[index] == MRoman.name){
+                      resulten+=SymbolMap.get(MRoman);
+                  }
+                  
+              }
+              console.log(resulten);
+          };
+          romanToInt(s);*/
+
+
+
+        var s = "LVIII";
+        var romanToInt = function (s) {
+            let x = [...s];
+            console.log(x);
+            let I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000;
+            let y = 0
+            for (let i = 0; i < x.length; i++) {
+                if (x[i] === 'I') { 
+                    y = x[i + 1] === 'V' || x[i + 1] === "X" ? y - 1 : y + 1; 
+                }
+                else if (x[i] === 'V') {
+                    y += V;
+                }
+                else if (x[i] === 'X') {
+                    y += X;
+                }
+                else if (x[i] === 'L') { 
+                    y = x[i - 1] === 'X' ? y + L - 2*X: y + L; 
+                }
+                else if (x[i] === 'C') { 
+                    y = x[i - 1] === 'X' ? y + C - 2*X: y + C; 
+                }
+                else if (x[i] === 'D') { 
+                    y = x[i - 1] === 'C' ? y + D - 2*C: y + D; 
+                }
+                else if (x[i] === 'M') { 
+                    y = x[i - 1] === 'C' ? y + M - 2 * C : y + M; 
+                }
+
+            }
+            return y;
+        };
+        console.log(romanToInt(s));
+    </script>
+</body>
+
+</html>

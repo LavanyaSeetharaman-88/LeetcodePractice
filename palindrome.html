@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let myFunc = num => Number(num);
+        function reverseString(str) {
+            return str.split("").reverse().join("");
+        }
+        var isPalindrome = function (x) {
+            var arrayX = Array.from(String(x), myFunc);
+            if (arrayX.length == 1) {
+                return true;
+            } else {
+                if (x > 0) {
+                    var strX = x.toString();
+                    var revString = reverseString(strX);
+                    if (strX === revString) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+
+
+                } else {
+                    return false;
+                }
+            }
+
+        };
+
+        var x = 0;
+        console.log(isPalindrome(x));
+    </script>
+
+</body>
+
+</html>
